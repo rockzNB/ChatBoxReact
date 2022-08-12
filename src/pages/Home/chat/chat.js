@@ -6,47 +6,41 @@ const giftStyle = {
   height: "3em",
   width: "3em",
   paddingLeft: "8px",
+  padding: "10px",
 };
 
 const gifts = [
   {
     img: "gifts/crownQeen.png",
     name: "crown",
-    type: "gift",
   },
   {
     img: "gifts/heart_simple.png",
     name: "heart",
-    type: "gift",
   },
   {
     img: "gifts/roseBasket.png",
     name: "basket",
-    type: "gift",
   },
 
   {
     img: "gifts/plane.png",
     name: "plane",
-    type: "gift",
   },
 
   {
     img: "gifts/diamond.png",
     name: "diamond",
-    type: "gift",
   },
 
   {
     img: "gifts/chocolate.png",
     name: "chocolate",
-    type: "gift",
   },
 
   {
     img: "gifts/car.png",
     name: "car",
-    type: "gift",
   },
 ];
 
@@ -67,13 +61,21 @@ export default function ChatBox() {
   const sendMessage = (e) => {
     e.preventDefault();
     if (textValue !== "") {
-      setTextMessages([...textMessages, textValue]);
+      setTextMessages([
+        ...textMessages,
+        { value: textValue, id: new Date(), type: "text" },
+      ]);
       setTextValue("");
     }
   };
 
+  function removeMessage(messageId) {
+    setTextMessages((prevState) =>
+      prevState.filter(({ id }) => id !== messageId)
+    );
+  }
   const sendGift = (gift) => {
-    setTextMessages([...textMessages, gift]);
+    setTextMessages([...textMessages, { ...gift, id: new Date() }]);
   };
 
   return (
@@ -82,15 +84,26 @@ export default function ChatBox() {
         <div className="chat_window">
           <div ref={messageRef} className="textContainer">
             {textMessages.map((text) => {
-              if (typeof text === "string") {
-                return <div className="textArea">{text}</div>;
+              if (text.type === "text") {
+                return (
+                  <div className="textArea">
+                    {text.value}{" "}
+                    <button onClick={() => removeMessage(text.id)}>
+                      Delete Text
+                    </button>
+                  </div>
+                );
+              } else {
+                return (
+                  <div>
+                    {" "}
+                    <button onClick={() => removeMessage(text.id)}>
+                      Delete Image
+                    </button>
+                    <img style={giftStyle} src={text.img} />{" "}
+                  </div>
+                );
               }
-              return (
-                <div>
-                  {" "}
-                  <img style={giftStyle} src={text.img} />{" "}
-                </div>
-              );
             })}
           </div>
         </div>

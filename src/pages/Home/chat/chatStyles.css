@@ -1,66 +1,66 @@
 .chat_container {
-    border: 1px solid;
-    padding: 5px;
-    border-radius: 5px;
-    width: 100%;
-    background-color: #f5f5f5;
-    position: relative;
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #f5f5f5;
+  position: relative;
 }
 
 .chat_window {
-    border: 1px solid;
-    height: 420px;
-    margin-bottom: 5px;
-    overflow: scroll;
-    background-color: azure;
-    border-radius: 3px;
-    padding: 10px 0 75px 20px;
-
+  border: 1px solid;
+  height: 420px;
+  margin-bottom: 5px;
+  overflow: scroll;
+  background-color: azure;
+  border-radius: 3px;
+  padding: 10px 0 0 20px;
 }
 
 #chat_form {
-    position: relative;
-    height: 0;
+  position: relative;
+  height: 0;
 }
 .chat_sendBtn {
-    background-color: #009f81;
-    height: 32px;
-    width: 36px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    margin-left: 10px;
-    color: white;
-    font-size: 8px;
-    border-radius: 0 0 10px;
+  background-color: #009f81;
+  height: 32px;
+  width: 36px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 10px;
+  color: white;
+  font-size: 8px;
+  border-radius: 0 0 10px;
 }
 
 .chat_input {
-    display: table-cell;
-    height: 30px;
-    border: initial;
-    width: 90%;
-    border-radius: 8px;
-    background-color: white;
-    outline: none;
+  display: table-cell;
+  height: 30px;
+  border: initial;
+  width: 90%;
+  border-radius: 8px;
+  background-color: white;
+  outline: none;
 }
-
-
 
 .textArea {
-    margin-top: 10px;
+  margin-top: 10px;
 
-    position: relative;
-    max-width: 60%;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: #009f83;
-    display: table;
-    border-radius: 20px;
-    color: #ccf7f5;
-    font-size: 11px;
-    vertical-align: middle;
-    word-wrap: break-word;
-    margin-left: 3px;
+  position: relative;
+  max-width: 60%;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  background-color: #009f83;
+  display: table;
+  border-radius: 20px;
+  color: #ccf7f5;
+  font-size: 11px;
+  vertical-align: middle;
+  word-wrap: break-word;
+  margin-left: 3px;
 }
 
+.textContainer {
+  padding-bottom: 75px;
+}

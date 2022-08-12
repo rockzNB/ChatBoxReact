@@ -1,34 +1,26 @@
 .logo {
-    width: 150px;
-    height: 100px;
-    display: block;
-
-
+  width: 150px;
+  height: 100px;
+  display: block;
 }
 
 .header {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background-color: black;
-    height: 100px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: black;
+  height: 100px;
 }
 
 .profile {
-
-
 }
 
 .chat {
-
-
 }
 
 .chat_container {
-
 }
 
 .home_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
