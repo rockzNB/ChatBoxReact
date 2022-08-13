@@ -1,0 +1,13 @@
+.drawer {
+  background-color: black;
+    margin-top: -100px;
+    position: absolute;
+
+}
+
+.emoji_picker {
+  float: right;
+
+
+  transform: translateX(-50px);
+}

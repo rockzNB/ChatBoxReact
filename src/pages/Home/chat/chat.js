@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./chatStyles.css";
 import GiftRow from "./giftRow";
+import EmojiPicker from "./EmojiPicker";
 
 const giftStyle = {
   height: "3em",
@@ -44,6 +45,18 @@ const gifts = [
   },
 ];
 
+const emojis = [
+  {
+    img: "emojis/hearteyes.png",
+    name: "hearteyes",
+  },
+
+  {
+    img: "emojis/cool.png",
+    name: "cool",
+  },
+];
+
 export default function ChatBox() {
   const [textValue, setTextValue] = useState("");
   const [textMessages, setTextMessages] = useState([]);
@@ -76,6 +89,10 @@ export default function ChatBox() {
   }
   const sendGift = (gift) => {
     setTextMessages([...textMessages, { ...gift, id: new Date() }]);
+  };
+
+  const sendEmoji = (emoji) => {
+    setTextMessages([...textMessages, { ...emoji, id: new Date() }]);
   };
 
   return (
@@ -124,6 +141,7 @@ export default function ChatBox() {
             </text>
             <i></i>
           </button>
+          <EmojiPicker emojis={emojis} handleClick={sendEmoji}></EmojiPicker>
           <GiftRow gifts={gifts} handleClick={sendGift}></GiftRow>
         </form>
       </div>

@@ -9,7 +9,7 @@
 
 .chat_window {
   border: 1px solid;
-  height: 420px;
+  height: 448px;
   margin-bottom: 5px;
   overflow: scroll;
   background-color: azure;
@@ -19,7 +19,7 @@
 
 #chat_form {
   position: relative;
-  height: 0;
+  height: 30px;
 }
 .chat_sendBtn {
   background-color: #009f81;
