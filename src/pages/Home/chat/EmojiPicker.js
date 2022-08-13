@@ -15,14 +15,19 @@ export default function EmojiPicker({ handleClick, emojis }) {
         {emojis.map((emoji) => (
           <img
             style={emojiStyle}
-            onClick={() => handleClick(emoji)}
+            onClick={() => {
+              handleClick(emoji);
+              setHidden(emoji);
+            }}
             key={emoji.name}
             src={emoji.img}
-            alt={emoji.name}
+            alt={emoji.value}
           />
         ))}
       </div>
-      <button onClick={() => setHidden(!hidden)}>😃</button>
+      <button type="button" onClick={() => setHidden(!hidden)}>
+        😃
+      </button>
     </div>
   );
 }

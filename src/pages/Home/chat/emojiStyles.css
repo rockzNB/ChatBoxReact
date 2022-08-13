@@ -1,7 +1,13 @@
 .drawer {
-  background-color: black;
+  background-color: cyan;
     margin-top: -100px;
-    position: absolute;
+    position: fixed;
+    border: 1px solid;
+    width: 5em;
+    right: 0;
+
+
+
 
 }
 

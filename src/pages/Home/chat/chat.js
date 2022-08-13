@@ -2,6 +2,15 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chatStyles.css";
 import GiftRow from "./giftRow";
 import EmojiPicker from "./EmojiPicker";
+// import AnotherChatter from "./AnotherChatter";
+
+const messages = [
+  "hello",
+  "how are you",
+  "nice to meet you",
+  "hi lets chat",
+  "long time no see",
+];
 
 const giftStyle = {
   height: "3em",
@@ -47,15 +56,63 @@ const gifts = [
 
 const emojis = [
   {
-    img: "emojis/hearteyes.png",
-    name: "hearteyes",
+    img: "emojis/smile.png",
+    name: "smile",
+    value: " :)",
+  },
+
+  {
+    img: "emojis/angry.png",
+    name: "angry",
+    value: " X(",
+  },
+
+  {
+    img: "emojis/blankface.png",
+    name: "blankface",
+    value: " :|",
+  },
+
+  {
+    img: "emojis/cry.png",
+    name: "cry",
+    value: " :'(",
+  },
+
+  {
+    img: "emojis/inlove.png",
+    name: "inlove",
     value: " *__*",
   },
 
   {
-    img: "emojis/cool.png",
-    name: "cool",
+    img: "emojis/kiss.png",
+    name: "kiss",
+    value: " :*",
+  },
+
+  {
+    img: "emojis/sunglasses.png",
+    name: "sunglasses",
     value: " 8)",
+  },
+
+  {
+    img: "emojis/tongueout.png",
+    name: "tongueout",
+    value: " :P",
+  },
+
+  {
+    img: "emojis/wink.png",
+    name: "wink",
+    value: " ;)",
+  },
+
+  {
+    img: "emojis/woozy.png",
+    name: "woozy",
+    value: " %(",
   },
 ];
 
@@ -73,6 +130,25 @@ export default function ChatBox() {
     }
   }, [textMessages]);
 
+  const intervalRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  const sendFakeMessage = (messages) => {
+    clearInterval(intervalRef.current);
+    setTextMessages(messages[Math.floor(Math.random() * messages.length)]);
+    setTimeout(() => {
+      intervalRef.current = setInterval(sendFakeMessage, 3000);
+    }, 5000);
+  };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(sendFakeMessage, 3000);
+    return () => {
+      clearInterval(intervalRef.current);
+      clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
   const inputRef = useRef();
 
   const sendMessage = (e) => {
@@ -80,7 +156,7 @@ export default function ChatBox() {
     if (textValue !== "") {
       setTextMessages([
         ...textMessages,
-        { value: textValue, id: new Date(), type: "text" },
+        { value: textValue, id: new Date(), type: "text", owner: true },
       ]);
       setTextValue("");
     }
@@ -104,22 +180,29 @@ export default function ChatBox() {
       <div className="chat_container">
         <div className="chat_window">
           <div ref={messageRef} className="textContainer">
+            {/*<AnotherChatter></AnotherChatter>*/}
             {textMessages.map((text) => {
-              if (text.type === "text") {
+              if (text.type === "text" && text.owner(true)) {
                 return (
                   <div className="textArea">
-                    {text.value}{" "}
-                    <button onClick={() => removeMessage(text.id)}>
-                      Delete Text
+                    <button
+                      className="removeMessage"
+                      onClick={() => removeMessage(text.id)}
+                    >
+                      &times;
                     </button>
+                    {text.value}{" "}
                   </div>
                 );
               } else {
                 return (
                   <div>
                     {" "}
-                    <button onClick={() => removeMessage(text.id)}>
-                      Delete Image
+                    <button
+                      className="removeGift"
+                      onClick={() => removeMessage(text.id)}
+                    >
+                      &times;
                     </button>
                     <img style={giftStyle} src={text.img} />{" "}
                   </div>

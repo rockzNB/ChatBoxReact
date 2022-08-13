@@ -64,3 +64,34 @@
 .textContainer {
   padding-bottom: 75px;
 }
+
+.removeMessage {
+  font-size: 10px;
+  position: absolute;
+  left: -21px;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  top: 20%;
+  padding: 0;
+}
+
+.removeGift {
+  font-size: 10px;
+  position: relative;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  top: 20%;
+  padding: 0;
+}
+
+.removeGift:hover {
+  background:#d8222c;
+}
+
+.removeMessage:hover {
+  background:#d8222c;
+}
