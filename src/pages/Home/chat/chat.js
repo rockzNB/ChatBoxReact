@@ -5,11 +5,20 @@ import EmojiPicker from "./EmojiPicker";
 // import AnotherChatter from "./AnotherChatter";
 
 const messages = [
-  "hello",
-  "how are you",
-  "nice to meet you",
-  "hi lets chat",
-  "long time no see",
+  {
+    value: "hello",
+  },
+  {
+    value: "how are you doing",
+  },
+
+  {
+    value: "whats going on",
+  },
+
+  {
+    value: "yes yes yes HELLO",
+  },
 ];
 
 const giftStyle = {
@@ -133,16 +142,19 @@ export default function ChatBox() {
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  const sendFakeMessage = (messages) => {
+  const sendFakeMessage = () => {
     clearInterval(intervalRef.current);
-    setTextMessages(messages[Math.floor(Math.random() * messages.length)]);
+    setTextMessages((prevState) => [
+      ...prevState,
+      { value: "hello", type: "text" },
+    ]);
     setTimeout(() => {
-      intervalRef.current = setInterval(sendFakeMessage, 3000);
+      intervalRef.current = setInterval(sendFakeMessage, 5000);
     }, 5000);
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(sendFakeMessage, 3000);
+    intervalRef.current = setInterval(sendFakeMessage, 2000);
     return () => {
       clearInterval(intervalRef.current);
       clearTimeout(timeoutRef.current);
@@ -182,9 +194,23 @@ export default function ChatBox() {
           <div ref={messageRef} className="textContainer">
             {/*<AnotherChatter></AnotherChatter>*/}
             {textMessages.map((text) => {
-              if (text.type === "text" && text.owner(true)) {
+              if (text.type === "text" && text.owner) {
                 return (
                   <div className="textArea">
+                    <button
+                      className="removeMessage"
+                      onClick={() => removeMessage(text.id)}
+                    >
+                      &times;
+                    </button>
+                    {text.value}{" "}
+                  </div>
+                );
+              }
+
+              if (text.type === "text" && !text.owner) {
+                return (
+                  <div className="FakeTextArea">
                     <button
                       className="removeMessage"
                       onClick={() => removeMessage(text.id)}
