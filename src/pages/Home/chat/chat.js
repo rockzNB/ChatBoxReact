@@ -49,11 +49,13 @@ const emojis = [
   {
     img: "emojis/hearteyes.png",
     name: "hearteyes",
+    value: " *__*",
   },
 
   {
     img: "emojis/cool.png",
     name: "cool",
+    value: " 8)",
   },
 ];
 
@@ -70,6 +72,8 @@ export default function ChatBox() {
       });
     }
   }, [textMessages]);
+
+  const inputRef = useRef();
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -92,7 +96,7 @@ export default function ChatBox() {
   };
 
   const sendEmoji = (emoji) => {
-    setTextMessages([...textMessages, { ...emoji, id: new Date() }]);
+    setTextValue(textValue + emoji.value);
   };
 
   return (
@@ -127,6 +131,7 @@ export default function ChatBox() {
 
         <form onSubmit={sendMessage} id="chat_form">
           <input
+            ref={inputRef}
             type="text"
             value={textValue}
             onChange={(e) => setTextValue(e.target.value)}
