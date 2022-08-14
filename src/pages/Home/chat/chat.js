@@ -124,7 +124,7 @@ export default function ChatBox() {
     setTextMessages((prevState) => [
       ...prevState,
       {
-        value: "hellooooooooooo",
+        value: "hello",
         type: "text",
       },
     ]);

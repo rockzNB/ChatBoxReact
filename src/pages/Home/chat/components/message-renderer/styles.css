@@ -1,79 +1,89 @@
 .chat_window {
-    border: 1px solid;
-    height: 448px;
-    margin-bottom: 5px;
-    overflow: scroll;
-    background-color: azure;
-    border-radius: 3px;
-    padding: 10px 0 0 20px;
-}
-
-.chat_text_area {
-    margin-top: 10px;
-
-    position: relative;
-    max-width: 40%;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: #009f83;
-    display: table;
-    border-radius: 20px;
-    color: #ccf7f5;
-    font-size: 11px;
-    vertical-align: middle;
-    word-break: break-word;
-    margin-left: 3px;
+  border: 1px solid;
+  height: 448px;
+  margin-bottom: 5px;
+  overflow: scroll;
+  background-color: azure;
+  border-radius: 3px;
+  padding: 10px 0 0 20px;
 }
 
 .chat_text_container {
-    padding-bottom: 75px;
+  padding-bottom: 75px;
+  max-width: 100%;
 }
 
 .chat_remove_message {
-    font-size: 10px;
-    position: absolute;
-    left: -21px;
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    top: 20%;
-    padding: 0;
+  font-size: 10px;
+  position: absolute;
+  left: -21px;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  top: 20%;
+  padding: 0;
 }
 
 .chat_remove_gift {
-    font-size: 10px;
-    position: relative;
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    top: 20%;
-    padding: 0;
+  font-size: 10px;
+  position: relative;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  top: 20%;
+  padding: 0;
 }
 
 .chat_remove_gift:hover {
-    background: #d8222c;
+  background: #d8222c;
 }
 
 .chat_remove_message:hover {
-    background: #d8222c;
+  background: #d8222c;
+}
+.chat_text_area {
+  margin-top: 10px;
+
+  position: relative;
+  max-width: 40%;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  background-color: #009f83;
+  display: table;
+  border-radius: 20px;
+  color: #ccf7f5;
+  font-size: 11px;
+  vertical-align: middle;
+  word-break: break-word;
+  margin-left: 3px;
 }
 
 .chat_fake_textarea {
-    margin-top: 10px;
-    position: relative;
-    max-width: 40%;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: purple;
 
-    border-radius: 20px;
+  position: relative;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+
+
+
+
+  margin-right: 3px;
+}
+
+.chat_fake_textarea_text {
+  max-width: 40%;
     color: #ccf7f5;
+    word-break: break-word;
+    background-color: purple;
     font-size: 11px;
     vertical-align: middle;
-    word-break: break-word;
-    margin-left: 3px;
-    display: flex;
-    justify-content: flex-end;
+    border-radius: 20px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
 }

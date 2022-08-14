@@ -32,12 +32,16 @@ export function MessageRenderer({ textMessages = [], removeMessage }) {
                 >
                   &times;
                 </button>
-                {text.value}{" "}
+                {text.value}
               </div>
             );
           }
           if (text.type === "text" && !text.owner) {
-            return <div className="chat_fake_textarea">{text.value}</div>;
+            return (
+              <div className="chat_fake_textarea">
+                <div className="chat_fake_textarea_text">{text.value}</div>
+              </div>
+            );
           } else {
             return (
               <div>
