@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chatStyles.css";
 import GiftRow from "./giftRow";
 import EmojiPicker from "./EmojiPicker";
-// import AnotherChatter from "./AnotherChatter";
+import { MessageRenderer } from "./MessageRenderer";
+import { ChatForm } from "./ChatForm";
 
 const messages = [
   {
@@ -20,13 +21,6 @@ const messages = [
     value: "yes yes yes HELLO",
   },
 ];
-
-const giftStyle = {
-  height: "3em",
-  width: "3em",
-  paddingLeft: "8px",
-  padding: "10px",
-};
 
 const gifts = [
   {
@@ -147,7 +141,10 @@ export default function ChatBox() {
     clearInterval(intervalRef.current);
     setTextMessages((prevState) => [
       ...prevState,
-      { value: "helloooooooooooo", type: "text" },
+      {
+        value: "hello",
+        type: "text",
+      },
     ]);
     setTimeout(() => {
       intervalRef.current = setInterval(sendFakeMessage, 5000);
@@ -193,62 +190,17 @@ export default function ChatBox() {
       <div className="chat_container">
         <div className="chat_window">
           <div ref={messageRef} className="textContainer">
-            {/*<AnotherChatter></AnotherChatter>*/}
-            {textMessages.map((text) => {
-              if (text.type === "text" && text.owner) {
-                return (
-                  <div className="textArea">
-                    <button
-                      className="removeMessage"
-                      onClick={() => removeMessage(text.id)}
-                    >
-                      &times;
-                    </button>
-                    {text.value}{" "}
-                  </div>
-                );
-              }
-
-              if (text.type === "text" && !text.owner) {
-                return <div className="FakeTextArea">{text.value} </div>;
-              } else {
-                return (
-                  <div>
-                    {" "}
-                    <button
-                      className="removeGift"
-                      onClick={() => removeMessage(text.id)}
-                    >
-                      &times;
-                    </button>
-                    <img style={giftStyle} src={text.img} />{" "}
-                  </div>
-                );
-              }
-            })}
+            <MessageRenderer
+              textMessages={textMessages}
+              removeMessage={removeMessage}
+            ></MessageRenderer>
           </div>
         </div>
 
-        <form onSubmit={sendMessage} id="chat_form">
-          <input
-            ref={inputRef}
-            type="text"
-            value={textValue}
-            onChange={(e) => setTextValue(e.target.value)}
-            name="enterMsg"
-            placeholder="Type your message..."
-            className="chat_input"
-          />
-
-          <button type="submit" className="chat_sendBtn">
-            <text>
-              <b>SEND</b>
-            </text>
-            <i></i>
-          </button>
+        <ChatForm>
           <EmojiPicker emojis={emojis} handleClick={sendEmoji}></EmojiPicker>
           <GiftRow gifts={gifts} handleClick={sendGift}></GiftRow>
-        </form>
+        </ChatForm>
       </div>
     </>
   );

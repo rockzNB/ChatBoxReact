@@ -104,12 +104,15 @@
   padding: 10px 10px;
   margin-bottom: 10px;
   background-color: purple;
-  display: table;
+
   border-radius: 20px;
   color: #ccf7f5;
   font-size: 11px;
   vertical-align: middle;
   word-wrap: break-word;
   margin-left: 3px;
+  display: flex;
+  justify-content: flex-end;
+
 
 }
