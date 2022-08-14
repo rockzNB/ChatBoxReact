@@ -11,7 +11,7 @@ export default function EmojiPicker({ handleClick, emojis }) {
 
   return (
     <div className="emoji_picker">
-      <div className="drawer" hidden={hidden}>
+      <div className="emoji_drawer" hidden={hidden}>
         {emojis.map((emoji) => (
           <img
             style={emojiStyle}

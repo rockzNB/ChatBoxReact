@@ -13,7 +13,7 @@ export function ChatForm({ sendMessage, inputRef, textValue, setTextValue }) {
         className="chat_input"
       />
 
-      <button type="submit" className="chat_sendBtn">
+      <button type="submit" className="chat_send_btn">
         <text>
           <b>SEND</b>
         </text>

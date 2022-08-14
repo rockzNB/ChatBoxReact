@@ -5,23 +5,6 @@ import EmojiPicker from "./EmojiPicker";
 import { MessageRenderer } from "./MessageRenderer";
 import { ChatForm } from "./ChatForm";
 
-const messages = [
-  {
-    value: "hello",
-  },
-  {
-    value: "how are you doing",
-  },
-
-  {
-    value: "whats going on",
-  },
-
-  {
-    value: "yes yes yes HELLO",
-  },
-];
-
 const gifts = [
   {
     img: "gifts/crownQeen.png",
@@ -135,7 +118,6 @@ export default function ChatBox() {
 
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
-  let randomText = Math.floor(Math.random() * messages.length);
 
   const sendFakeMessage = () => {
     clearInterval(intervalRef.current);

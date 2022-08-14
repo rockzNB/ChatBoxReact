@@ -20,13 +20,13 @@ export function MessageRenderer({ textMessages = [], removeMessage }) {
   }, [textMessages]);
   return (
     <div className="chat_window">
-      <div ref={messageRef} className="textContainer">
+      <div ref={messageRef} className="chat_text_container">
         {textMessages.map((text) => {
           if (text.type === "text" && text.owner) {
             return (
-              <div className="textArea">
+              <div className="chat_text_area">
                 <button
-                  className="removeMessage"
+                  className="chat_remove_message"
                   onClick={() => removeMessage(text.id)}
                 >
                   &times;
@@ -36,13 +36,13 @@ export function MessageRenderer({ textMessages = [], removeMessage }) {
             );
           }
           if (text.type === "text" && !text.owner) {
-            return <div className="FakeTextArea">{text.value}</div>;
+            return <div className="chat_fake_textarea">{text.value}</div>;
           } else {
             return (
               <div>
                 {" "}
                 <button
-                  className="removeGift"
+                  className="chat_remove_gift"
                   onClick={() => removeMessage(text.id)}
                 >
                   &times;
