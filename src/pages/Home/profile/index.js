@@ -12,7 +12,6 @@ export default function Profile() {
       </div>
       <div className="profile_bio">PROFILE INFORMATION BLOCK</div>
       <div className="profile_gallery">
-        <span className="profile_columns">GALLERY BLOCK</span>
         <div className="profile_photos">MY PHOTOS BLOCK</div>
         <div className="profile_videos">MY VIDEOS BLOCK</div>
       </div>

@@ -7,18 +7,9 @@
 .header {
   grid-column-start: 1;
   grid-column-end: 3;
-  background-color: black;
   height: 100px;
 }
 
-.profile {
-}
-
-.chat {
-}
-
-.chat_container {
-}
 
 .home_container {
   display: grid;
