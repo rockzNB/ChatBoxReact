@@ -1,0 +1,14 @@
+.emoji_drawer {
+  background-color: cyan;
+  margin-top: -100px;
+  position: fixed;
+  border: 1px solid;
+  width: 5em;
+  right: 0;
+}
+
+.emoji_picker {
+  float: right;
+  margin-top: -25px;
+  transform: translateX(-40px);
+}

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./chatStyles.css";
-import GiftRow from "./giftRow";
-import EmojiPicker from "./EmojiPicker";
-import { MessageRenderer } from "./MessageRenderer";
-import { ChatForm } from "./ChatForm";
+import "./styles.css";
+import GiftRow from "./components/gift-row";
+import EmojiPicker from "./components/emoji-picker";
+import { MessageRenderer } from "./components/message-renderer";
+import { ChatForm } from "./components/chat-form";
 
 const gifts = [
   {
@@ -124,7 +124,7 @@ export default function ChatBox() {
     setTextMessages((prevState) => [
       ...prevState,
       {
-        value: "hello",
+        value: "hellooooooooooo",
         type: "text",
       },
     ]);

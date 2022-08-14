@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./emojiStyles.css";
+import "./styles.css";
 
 const emojiStyle = {
   height: "1rem",

@@ -1,7 +1,7 @@
 import React from "react";
-import "./homeStyles.css";
+import "./styles.css";
 import Header from "./header";
-import Profile from "./profile/profile";
+import Profile from "./profile";
 import ChatBox from "./chat/chat";
 
 export default function Home() {

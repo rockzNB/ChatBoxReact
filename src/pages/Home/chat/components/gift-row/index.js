@@ -5,6 +5,7 @@ export default function GiftRow({ handleClick, gifts }) {
     height: "3em",
     width: "3em",
     paddingLeft: "8px",
+    cursor: "pointer",
   };
 
   const giftContainerStyle = {

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./styles.css";
 
 const giftStyle = {
   height: "3em",
