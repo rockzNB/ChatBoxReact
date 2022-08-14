@@ -188,19 +188,18 @@ export default function ChatBox() {
   return (
     <>
       <div className="chat_container">
-        <div className="chat_window">
-          <div ref={messageRef} className="textContainer">
-            <MessageRenderer
-              textMessages={textMessages}
-              removeMessage={removeMessage}
-            ></MessageRenderer>
-          </div>
-        </div>
-
-        <ChatForm>
-          <EmojiPicker emojis={emojis} handleClick={sendEmoji}></EmojiPicker>
-          <GiftRow gifts={gifts} handleClick={sendGift}></GiftRow>
-        </ChatForm>
+        <MessageRenderer
+          textMessages={textMessages}
+          removeMessage={removeMessage}
+        />
+        <ChatForm
+          sendMessage={sendMessage}
+          textValue={textValue}
+          setTextValue={setTextValue}
+          inputRef={inputRef}
+        />
+        <EmojiPicker emojis={emojis} handleClick={sendEmoji} />
+        <GiftRow gifts={gifts} handleClick={sendGift} />
       </div>
     </>
   );
