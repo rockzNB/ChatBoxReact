@@ -25,21 +25,21 @@ export function MessageRenderer({ textMessages = [], removeMessage }) {
         {textMessages.map((text) => {
           if (text.type === "text" && text.owner) {
             return (
-              <div className="chat_text_area">
+              <div className="chat_chatter">
                 <button
                   className="chat_remove_message"
                   onClick={() => removeMessage(text.id)}
                 >
                   &times;
                 </button>
-                {text.value}
+                <div className="chat_chatter_text">{text.value}</div>
               </div>
             );
           }
           if (text.type === "text" && !text.owner) {
             return (
-              <div className="chat_fake_textarea">
-                <div className="chat_fake_textarea_text">{text.value}</div>
+              <div className="chat_fake_chatter">
+                <div className="chat_fake_chatter_text">{text.value}</div>
               </div>
             );
           } else {

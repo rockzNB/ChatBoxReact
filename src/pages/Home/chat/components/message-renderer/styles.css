@@ -43,15 +43,19 @@
 .chat_remove_message:hover {
   background: #d8222c;
 }
-.chat_text_area {
+.chat_chatter {
   margin-top: 10px;
-
+  display: flex;
+  justify-content: flex-start;
   position: relative;
+  max-width: 100%;
+}
+
+.chat_chatter_text {
   max-width: 40%;
   padding: 10px 10px;
   margin-bottom: 10px;
   background-color: #009f83;
-  display: table;
   border-radius: 20px;
   color: #ccf7f5;
   font-size: 11px;
@@ -60,17 +64,15 @@
   margin-left: 3px;
 }
 
-.chat_fake_textarea {
+.chat_fake_chatter {
   position: relative;
   max-width: 100%;
-
   display: flex;
   justify-content: flex-end;
-
   margin-right: 3px;
 }
 
-.chat_fake_textarea_text {
+.chat_fake_chatter_text {
   max-width: 40%;
   color: #ccf7f5;
   word-break: break-word;

@@ -4,6 +4,11 @@ import "./styles.css";
 const emojiStyle = {
   height: "1rem",
   width: "1rem",
+  cursor: "pointer",
+};
+
+const emojiButtonStyle = {
+  cursor: "pointer",
 };
 
 export default function EmojiPicker({ handleClick, emojis }) {
@@ -25,7 +30,11 @@ export default function EmojiPicker({ handleClick, emojis }) {
           />
         ))}
       </div>
-      <button type="button" onClick={() => setHidden(!hidden)}>
+      <button
+        style={emojiButtonStyle}
+        type="button"
+        onClick={() => setHidden(!hidden)}
+      >
         😃
       </button>
     </div>

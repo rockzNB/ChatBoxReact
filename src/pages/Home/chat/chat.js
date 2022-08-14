@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import GiftRow from "./components/gift-row";
 import EmojiPicker from "./components/emoji-picker";
@@ -102,6 +102,24 @@ const emojis = [
   },
 ];
 
+const messages = [
+  {
+    value:
+      "hello how are you doing? I'm a chinese billionaire, I own a company, where are you from? I wanna send you $50000000",
+  },
+  {
+    value: "please send me those virtual gifts I need them to escape prison",
+  },
+
+  {
+    value: "if you REALLY love me, SEND ME THE VIRTUAL GIFTS!!!",
+  },
+
+  {
+    value: "I'm waiting for you in the airport, where are you??? ",
+  },
+];
+
 export default function ChatBox() {
   const [textValue, setTextValue] = useState("");
   const [textMessages, setTextMessages] = useState([]);
@@ -119,12 +137,18 @@ export default function ChatBox() {
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
 
+  function randomText() {
+    const random = Math.floor(Math.random() * messages.length);
+    const randomMessages = messages[random];
+    return randomMessages.value;
+  }
+
   const sendFakeMessage = () => {
     clearInterval(intervalRef.current);
     setTextMessages((prevState) => [
       ...prevState,
       {
-        value: "hello",
+        value: randomText(),
         type: "text",
       },
     ]);
