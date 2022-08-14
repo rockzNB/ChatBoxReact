@@ -61,29 +61,24 @@
 }
 
 .chat_fake_textarea {
-
   position: relative;
   max-width: 100%;
 
   display: flex;
   justify-content: flex-end;
 
-
-
-
   margin-right: 3px;
 }
 
 .chat_fake_textarea_text {
   max-width: 40%;
-    color: #ccf7f5;
-    word-break: break-word;
-    background-color: purple;
-    font-size: 11px;
-    vertical-align: middle;
-    border-radius: 20px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-
+  color: #ccf7f5;
+  word-break: break-word;
+  background-color: purple;
+  font-size: 11px;
+  vertical-align: middle;
+  border-radius: 20px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
