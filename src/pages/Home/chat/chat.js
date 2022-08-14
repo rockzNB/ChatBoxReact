@@ -141,12 +141,13 @@ export default function ChatBox() {
 
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
+  let randomText = Math.floor(Math.random() * messages.length);
 
   const sendFakeMessage = () => {
     clearInterval(intervalRef.current);
     setTextMessages((prevState) => [
       ...prevState,
-      { value: "hello", type: "text" },
+      { value: "helloooooooooooo", type: "text" },
     ]);
     setTimeout(() => {
       intervalRef.current = setInterval(sendFakeMessage, 5000);
@@ -209,17 +210,7 @@ export default function ChatBox() {
               }
 
               if (text.type === "text" && !text.owner) {
-                return (
-                  <div className="FakeTextArea">
-                    <button
-                      className="removeMessage"
-                      onClick={() => removeMessage(text.id)}
-                    >
-                      &times;
-                    </button>
-                    {text.value}{" "}
-                  </div>
-                );
+                return <div className="FakeTextArea">{text.value} </div>;
               } else {
                 return (
                   <div>
