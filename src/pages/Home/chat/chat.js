@@ -116,7 +116,7 @@ const messages = [
   },
 
   {
-    value: "I'm waiting for you in the airport, where are you??? ",
+    value: "I'm waiting for you at the airport, where are you??? ",
   },
 ];
 
