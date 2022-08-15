@@ -12,7 +12,7 @@ const emojiButtonStyle = {
   cursor: "pointer",
 };
 
-export default function EmojiPicker({ handleClick, emojis }) {
+export function EmojiPicker({ handleClick, emojis }) {
   const [hidden, setHidden] = useState(true);
 
   return (

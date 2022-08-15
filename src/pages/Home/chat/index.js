@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
-import GiftRow from "./components/gift-row";
-import EmojiPicker from "./components/emoji-picker";
+import { GiftRow } from "./components/gift-row";
+import { EmojiPicker } from "./components/emoji-picker";
 import { MessageRenderer } from "./components/message-renderer";
 import { ChatForm } from "./components/chat-form";
 

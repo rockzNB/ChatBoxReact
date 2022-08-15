@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function GiftRow({ handleClick, gifts }) {
+export function GiftRow({ handleClick, gifts }) {
   const giftStyle = {
     height: "3em",
     width: "3em",
