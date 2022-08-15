@@ -5,6 +5,7 @@ const emojiStyle = {
   height: "1rem",
   width: "1rem",
   cursor: "pointer",
+  margin: "2px",
 };
 
 const emojiButtonStyle = {
