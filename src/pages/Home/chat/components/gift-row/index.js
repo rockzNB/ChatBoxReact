@@ -15,9 +15,10 @@ export default function GiftRow({ handleClick, gifts }) {
   };
 
   return (
-    <div style={giftContainerStyle} className="giftRow_container">
+    <div style={giftContainerStyle} className="chat__giftrow-container">
       {gifts.map((gift) => (
         <img
+          className="chat__giftrow_gifts"
           onClick={() => handleClick(gift)}
           key={gift.name}
           src={gift.img}

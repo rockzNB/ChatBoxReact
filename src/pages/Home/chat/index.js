@@ -100,6 +100,18 @@ const emojis = [
     name: "woozy",
     value: " %(",
   },
+
+  {
+    img: "emojis/sad.png",
+    name: "sad",
+    value: " :(",
+  },
+
+  {
+    img: "emojis/grin.png",
+    name: "grin",
+    value: " :D",
+  },
 ];
 
 const messages = [
@@ -117,6 +129,14 @@ const messages = [
 
   {
     value: "I'm waiting for you at the airport, where are you??? ",
+  },
+
+  {
+    value: "MORE MORE VIRTUAL GIFTS PLEASE ",
+  },
+
+  {
+    value: "SEND ME YOUR WESTERN UNION ",
   },
 ];
 
@@ -153,6 +173,7 @@ export default function ChatBox() {
       },
     ]);
     setTimeout(() => {
+      timeoutRef.current = setTimeout(sendFakeMessage, 5000);
       intervalRef.current = setInterval(sendFakeMessage, 5000);
     }, 5000);
   };
@@ -184,7 +205,10 @@ export default function ChatBox() {
     );
   }
   const sendGift = (gift) => {
-    setTextMessages([...textMessages, { ...gift, id: new Date() }]);
+    setTextMessages([
+      ...textMessages,
+      { ...gift, id: new Date(), type: "gift" },
+    ]);
   };
 
   const sendEmoji = (emoji) => {

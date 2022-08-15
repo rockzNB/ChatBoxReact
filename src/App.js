@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import Profile from "./pages/Home/profile";
-import Chat from "./pages/Home/chat/chat.js";
+import Home from "./pages/Home";
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import "./styles.css";
 
 export function ChatForm({ sendMessage, inputRef, textValue, setTextValue }) {
   return (
-    <form onSubmit={sendMessage} id="chat_form">
+    <form onSubmit={sendMessage} id="chat__form">
       <input
         ref={inputRef}
         type="text"
@@ -14,7 +14,7 @@ export function ChatForm({ sendMessage, inputRef, textValue, setTextValue }) {
         className="chat_input"
       />
 
-      <button type="submit" className="chat_send_btn">
+      <button type="submit" className="chat__send-btn">
         <text>
           <b>SEND</b>
         </text>

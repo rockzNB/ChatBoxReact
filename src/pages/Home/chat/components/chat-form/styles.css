@@ -1,27 +1,27 @@
-.chat_send_btn {
-    background-color: #009f81;
-    height: 32px;
-    width: 36px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    margin-left: 20px;
-    color: white;
-    font-size: 8px;
-    border-radius: 0 0 10px;
+.chat__send-btn {
+  background-color: #009f81;
+  height: 32px;
+  width: 36px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 20px;
+  color: white;
+  font-size: 8px;
+  border-radius: 0 0 10px;
 }
 
 .chat_input {
-    display: table-cell;
-    height: 30px;
-    border: initial;
-    width: 90%;
-    border-radius: 8px;
-    background-color: white;
-    outline: none;
+  display: table-cell;
+  height: 30px;
+  border: initial;
+  width: 90%;
+  border-radius: 8px;
+  background-color: white;
+  outline: none;
 }
 
 #chat_form {
-    position: relative;
-    height: 30px;
+  position: relative;
+  height: 30px;
 }

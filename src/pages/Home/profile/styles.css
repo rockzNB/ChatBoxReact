@@ -4,11 +4,11 @@
   display: grid;
 }
 
-.profile_header {
+.profile__header {
   position: relative;
   padding: 40px 40px 120px;
 }
-.profile_pic {
+.profile__pic {
   width: 120px;
   height: 120px;
   background: yellow;
@@ -16,12 +16,12 @@
   bottom: -10px;
 }
 
-.profile_bio {
+.profile__bio {
   background: blue;
   padding: 40px;
 }
 
-.profile_gallery {
+.profile__gallery {
   background: purple;
   padding: 40px;
   display: flex;
@@ -34,13 +34,13 @@
   margin-top: 40px;
 }
 
-.profile_photos {
+.profile__photos {
   height: 80px;
   width: 80px;
   background: green;
 }
 
-.profile_videos {
+.profile__videos {
   height: 80px;
   width: 80px;
   background: green;
