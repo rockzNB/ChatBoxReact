@@ -140,12 +140,12 @@ const messages = [
   },
 ];
 
-type strObj = { [key: string]: string };
+export type StringObj = { [key: string]: string | Date | boolean };
 //
 
 export default function ChatBox() {
   const [textValue, setTextValue] = useState<string>('');
-  const [textMessages, setTextMessages] = useState<string | object | any>([]);
+  const [textMessages, setTextMessages] = useState<StringObj[]>([]);
   const messageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (messageRef.current) {
@@ -168,7 +168,7 @@ export default function ChatBox() {
 
   const sendFakeMessage = () => {
     clearInterval(intervalRef.current as NodeJS.Timeout);
-    setTextMessages((prevState: string[]) => [
+    setTextMessages((prevState) => [
       ...prevState,
       {
         value: randomText(),
@@ -189,12 +189,11 @@ export default function ChatBox() {
     };
   }, []);
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const sendMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (textValue !== '') {
-      // @ts-ignore
       setTextMessages([
         ...textMessages,
         { value: textValue, id: new Date(), type: 'text', owner: true },
@@ -203,9 +202,9 @@ export default function ChatBox() {
     }
   };
 
-  function removeMessage(messageId: string) {
-    setTextMessages((prevState: string[]) =>
-      prevState.filter(({ id }: any) => id !== messageId)
+  function removeMessage(messageId: Date) {
+    setTextMessages((prevState) =>
+      prevState.filter(({ id }) => id !== messageId)
     );
   }
   const sendGift = (gift: object) => {
@@ -215,7 +214,7 @@ export default function ChatBox() {
     ]);
   };
 
-  const sendEmoji = (emoji: strObj) => {
+  const sendEmoji = (emoji: any) => {
     setTextValue(textValue + emoji.value);
   };
 

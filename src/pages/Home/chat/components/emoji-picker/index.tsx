@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './styles.css';
+import styles from './styles.module.css';
+import { StringObj } from '../../index';
 
 const emojiStyle = {
   height: '1rem',
@@ -12,13 +13,18 @@ const emojiButtonStyle = {
   cursor: 'pointer',
 };
 
-export function EmojiPicker({ handleClick, emojis }) {
-  const [hidden, setHidden] = useState(true);
+type EmojiClick = {
+  emojis: StringObj[];
+  handleClick: (e: React.MouseEvent) => void;
+};
+
+export function EmojiPicker({ handleClick, emojis }: EmojiClick) {
+  const [hidden, setHidden] = useState<boolean>(true);
 
   return (
-    <div className="emoji_picker">
-      <div className="emoji__drawer" hidden={hidden}>
-        {emojis.map((emoji) => (
+    <div className={styles.emoji_picker}>
+      <div className={styles.emoji__drawer} hidden={hidden}>
+        {emojis.map((emoji: any) => (
           <img
             style={emojiStyle}
             onClick={() => {

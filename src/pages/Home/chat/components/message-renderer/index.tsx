@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './styles.css';
+import { StringObj } from '../../index';
 
 type Props = {
-  removeMessage: any;
-  textMessages: any;
+  removeMessage: (id: Date) => void;
+  textMessages: StringObj[];
 };
 
 export function MessageRenderer({ textMessages = [], removeMessage }: Props) {

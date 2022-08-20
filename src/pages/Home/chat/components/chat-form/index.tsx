@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 
 type Props = {
-  sendMessage: any;
-  textValue: any;
-  setTextValue: any;
-  inputRef: any;
+  sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
+  textValue: string;
+  setTextValue: (value: string) => void;
+  inputRef: React.LegacyRef<HTMLInputElement>;
 };
 
 export function ChatForm({
@@ -15,7 +15,7 @@ export function ChatForm({
   setTextValue,
 }: Props) {
   return (
-    <form onSubmit={sendMessage} id="chat__form">
+    <form onSubmit={sendMessage}>
       <input
         ref={inputRef}
         type="text"
