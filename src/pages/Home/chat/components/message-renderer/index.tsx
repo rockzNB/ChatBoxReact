@@ -1,23 +1,28 @@
-import React, { useEffect, useRef } from "react";
-import "./styles.css";
+import React, { useEffect, useRef } from 'react';
+import './styles.css';
 
-export function MessageRenderer({ textMessages = [], removeMessage }) {
-  const messageRef = useRef(null);
+type Props = {
+  removeMessage: any;
+  textMessages: any;
+};
+
+export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
+  const messageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (messageRef.current) {
       messageRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest',
       });
     }
   }, [textMessages]);
   return (
     <div className="chat__window">
       <div ref={messageRef} className="chat__text-container">
-        {textMessages.map((text) => {
-          const className = text.owner ? "chat_chatter" : "chat_fake_chatter";
-          if (text.type === "text") {
+        {textMessages.map((text: any) => {
+          const className = text.owner ? 'chat_chatter' : 'chat_fake_chatter';
+          if (text.type === 'text') {
             return (
               <div className={className}>
                 {text.owner && (
@@ -32,17 +37,17 @@ export function MessageRenderer({ textMessages = [], removeMessage }) {
               </div>
             );
           }
-          if (text.type === "gift") {
+          if (text.type === 'gift') {
             return (
               <div>
-                {" "}
+                {' '}
                 <button
                   className="chat__remove-gift"
                   onClick={() => removeMessage(text.id)}
                 >
                   &times;
                 </button>
-                <img className="chat__gift-style" src={text.img} />{" "}
+                <img className="chat__gift-style" src={text.img} />{' '}
               </div>
             );
           }

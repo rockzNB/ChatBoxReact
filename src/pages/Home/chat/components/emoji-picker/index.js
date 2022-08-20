@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "./styles.css";
+import React, { useState } from 'react';
+import './styles.css';
 
 const emojiStyle = {
-  height: "1rem",
-  width: "1rem",
-  cursor: "pointer",
-  margin: "2px",
+  height: '1rem',
+  width: '1rem',
+  cursor: 'pointer',
+  margin: '2px',
 };
 
 const emojiButtonStyle = {
-  cursor: "pointer",
+  cursor: 'pointer',
 };
 
 export function EmojiPicker({ handleClick, emojis }) {

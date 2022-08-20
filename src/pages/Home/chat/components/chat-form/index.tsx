@@ -1,7 +1,19 @@
-import React from "react";
-import "./styles.css";
+import React from 'react';
+import './styles.css';
 
-export function ChatForm({ sendMessage, inputRef, textValue, setTextValue }) {
+type Props = {
+  sendMessage: any;
+  textValue: any;
+  setTextValue: any;
+  inputRef: any;
+};
+
+export function ChatForm({
+  sendMessage,
+  inputRef,
+  textValue,
+  setTextValue,
+}: Props) {
   return (
     <form onSubmit={sendMessage} id="chat__form">
       <input
