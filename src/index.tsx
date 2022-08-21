@@ -6,7 +6,7 @@ import Home from './pages/Home';
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
-    <div className={styles.сontainer}>
+    <div className={styles.Container}>
       <Home />
     </div>
   </React.StrictMode>

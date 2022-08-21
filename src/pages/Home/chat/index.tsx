@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './styles.module.css';
 import { GiftRow } from './components/gift-row';
 import { EmojiPicker } from './components/emoji-picker';
@@ -172,7 +172,7 @@ export default function ChatBox() {
     return randomMessages.value;
   }
 
-  const sendFakeMessage = () => {
+  const sendFakeMessage = useCallback(() => {
     clearInterval(intervalRef.current as NodeJS.Timeout);
     setTextMessages((prevState) => [
       ...prevState,
@@ -185,7 +185,7 @@ export default function ChatBox() {
       timeoutRef.current = setTimeout(sendFakeMessage, 5000);
       intervalRef.current = setInterval(sendFakeMessage, 5000);
     }, 5000);
-  };
+  }, [textMessages]);
 
   useEffect(() => {
     intervalRef.current = setInterval(sendFakeMessage, 2000);
@@ -197,32 +197,41 @@ export default function ChatBox() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (textValue !== '') {
-      setTextMessages([
-        ...textMessages,
-        { value: textValue, id: new Date(), type: 'text', owner: true },
-      ]);
-      setTextValue('');
-    }
-  };
+  const sendMessage = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (textValue !== '') {
+        setTextMessages([
+          ...textMessages,
+          { value: textValue, id: new Date(), type: 'text', owner: true },
+        ]);
+        setTextValue('');
+      }
+    },
+    [textValue]
+  );
 
   function removeMessage(messageId?: Date) {
     setTextMessages((prevState) =>
       prevState.filter(({ id }) => id !== messageId)
     );
   }
-  const sendGift = (gift: MessageType) => {
-    setTextMessages([
-      ...textMessages,
-      { ...gift, id: new Date(), type: 'gift' },
-    ]);
-  };
+  const sendGift = useCallback(
+    (gift: MessageType) => {
+      setTextMessages([
+        ...textMessages,
+        { ...gift, id: new Date(), type: 'gift' },
+      ]);
+    },
+    [textMessages]
+  );
 
-  const sendEmoji = (emoji: MessageType) => {
-    setTextValue(textValue + emoji.value);
-  };
+  const sendEmoji = useCallback(
+    (emoji: MessageType) => {
+      setTextValue(textValue + emoji.value);
+    },
+    [textMessages]
+  );
 
   return (
     <>

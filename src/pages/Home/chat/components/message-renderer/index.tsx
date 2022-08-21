@@ -22,12 +22,12 @@ export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
     <div className={styles.chat__window}>
       <div ref={messageRef} className={styles.chat__textContainer}>
         {textMessages.map((text) => {
-          const className = text.owner
+          const ChatOrFake = text.owner
             ? styles.chat_chatter
             : styles.chat_fakeChatter;
           if (text.type === 'text') {
             return (
-              <div className={className}>
+              <div className={ChatOrFake}>
                 {text.owner && (
                   <button
                     className={styles.chat__removeButton}
