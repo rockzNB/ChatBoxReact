@@ -140,12 +140,19 @@ const messages = [
   },
 ];
 
-export type StringObj = { [key: string]: string | Date | boolean };
-//
+export type MessageType = {
+  id?: Date;
+  value?: string | Date | boolean;
+  owner?: boolean;
+  type?: string;
+  img?: string;
+  name?: string;
+  alt?: string;
+};
 
 export default function ChatBox() {
   const [textValue, setTextValue] = useState<string>('');
-  const [textMessages, setTextMessages] = useState<StringObj[]>([]);
+  const [textMessages, setTextMessages] = useState<MessageType[]>([]);
   const messageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (messageRef.current) {
@@ -207,14 +214,14 @@ export default function ChatBox() {
       prevState.filter(({ id }) => id !== messageId)
     );
   }
-  const sendGift = (gift: object) => {
+  const sendGift = (gift: MessageType) => {
     setTextMessages([
       ...textMessages,
       { ...gift, id: new Date(), type: 'gift' },
     ]);
   };
 
-  const sendEmoji = (emoji: StringObj) => {
+  const sendEmoji = (emoji: MessageType) => {
     setTextValue(textValue + emoji.value);
   };
 

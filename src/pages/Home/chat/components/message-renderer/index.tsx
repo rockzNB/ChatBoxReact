@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './styles.css';
-import { StringObj } from '../../index';
+import { MessageType } from '../../index';
 
 type Props = {
   removeMessage: (id: Date) => void;
-  textMessages: StringObj[];
+  textMessages: MessageType[];
 };
 
 export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
@@ -21,7 +21,7 @@ export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
   return (
     <div className="chat__window">
       <div ref={messageRef} className="chat__text-container">
-        {textMessages.map((text: any) => {
+        {textMessages.map((text) => {
           const className = text.owner ? 'chat_chatter' : 'chat_fake_chatter';
           if (text.type === 'text') {
             return (

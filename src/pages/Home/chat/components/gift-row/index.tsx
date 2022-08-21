@@ -1,16 +1,16 @@
 import React from 'react';
-import { StringObj } from '../../index';
+import { MessageType } from '../../index';
 import './styles.css';
 
 type GiftClick = {
-  gifts: StringObj[];
-  handleClick: (e: React.MouseEvent) => void;
+  gifts: MessageType[];
+  handleClick: (gift: MessageType) => void;
 };
 
 export function GiftRow({ handleClick, gifts }: GiftClick) {
   return (
     <div className="chat__giftrow-container">
-      {gifts.map((gift: any) => (
+      {gifts.map((gift) => (
         <img
           className="chat__giftrow_gifts"
           onClick={() => handleClick(gift)}
