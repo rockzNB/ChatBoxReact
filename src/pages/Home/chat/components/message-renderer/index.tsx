@@ -3,7 +3,7 @@ import './styles.css';
 import { MessageType } from '../../index';
 
 type Props = {
-  removeMessage: (id: Date) => void;
+  removeMessage: (id?: Date) => void;
   textMessages: MessageType[];
 };
 

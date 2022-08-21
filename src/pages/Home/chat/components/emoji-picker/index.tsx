@@ -29,11 +29,10 @@ export function EmojiPicker({ handleClick, emojis }: EmojiClick) {
             style={emojiStyle}
             onClick={() => {
               handleClick(emoji);
-              setHidden(emoji);
+              setHidden(true);
             }}
             key={emoji.name}
             src={emoji.img}
-            alt={emoji.value}
           />
         ))}
       </div>

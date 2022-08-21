@@ -142,12 +142,11 @@ const messages = [
 
 export type MessageType = {
   id?: Date;
-  value?: string | Date | boolean;
+  value?: string | boolean;
   owner?: boolean;
   type?: string;
   img?: string;
   name?: string;
-  alt?: string;
 };
 
 export default function ChatBox() {
@@ -209,7 +208,7 @@ export default function ChatBox() {
     }
   };
 
-  function removeMessage(messageId: Date) {
+  function removeMessage(messageId?: Date) {
     setTextMessages((prevState) =>
       prevState.filter(({ id }) => id !== messageId)
     );
