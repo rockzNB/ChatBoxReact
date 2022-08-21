@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 
 type Props = {
   sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -23,10 +23,10 @@ export function ChatForm({
         onChange={(e) => setTextValue(e.target.value)}
         name="enterMsg"
         placeholder="Type your message..."
-        className="chat_input"
+        className={styles.chat_input}
       />
 
-      <button type="submit" className="chat__send-btn">
+      <button type="submit" className={styles.chat__sendBtn}>
         <text>
           <b>SEND</b>
         </text>

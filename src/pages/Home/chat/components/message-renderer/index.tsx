@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 import { MessageType } from '../../index';
 
 type Props = {
@@ -19,22 +19,24 @@ export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
     }
   }, [textMessages]);
   return (
-    <div className="chat__window">
-      <div ref={messageRef} className="chat__text-container">
+    <div className={styles.chat__window}>
+      <div ref={messageRef} className={styles.chat__textContainer}>
         {textMessages.map((text) => {
-          const className = text.owner ? 'chat_chatter' : 'chat_fake_chatter';
+          const className = text.owner
+            ? styles.chat_chatter
+            : styles.chat_fakeChatter;
           if (text.type === 'text') {
             return (
               <div className={className}>
                 {text.owner && (
                   <button
-                    className="chat__remove-button"
+                    className={styles.chat__removeButton}
                     onClick={() => removeMessage(text.id)}
                   >
                     &times;
                   </button>
                 )}
-                <div className="chat__chatter-text">{text.value}</div>
+                <div className={styles.chat__chatterText}>{text.value}</div>
               </div>
             );
           }
@@ -43,12 +45,12 @@ export function MessageRenderer({ textMessages = [], removeMessage }: Props) {
               <div>
                 {' '}
                 <button
-                  className="chat__remove-gift"
+                  className={styles.chat__removeGift}
                   onClick={() => removeMessage(text.id)}
                 >
                   &times;
                 </button>
-                <img className="chat__gift-style" src={text.img} />{' '}
+                <img className={styles.chat__giftStyle} src={text.img} />{' '}
               </div>
             );
           }

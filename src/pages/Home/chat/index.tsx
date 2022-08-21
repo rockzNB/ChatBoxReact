@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 import { GiftRow } from './components/gift-row';
 import { EmojiPicker } from './components/emoji-picker';
 import { MessageRenderer } from './components/message-renderer';
@@ -226,7 +226,7 @@ export default function ChatBox() {
 
   return (
     <>
-      <div className="chat_container">
+      <div className={styles.chat_container}>
         <MessageRenderer
           textMessages={textMessages}
           removeMessage={removeMessage}
