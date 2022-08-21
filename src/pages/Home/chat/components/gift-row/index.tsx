@@ -9,7 +9,7 @@ type GiftClick = {
 
 export function GiftRow({ handleClick, gifts }: GiftClick) {
   return (
-    <div className="chat_container">
+    <div className="chat__giftrow-container">
       {gifts.map((gift: any) => (
         <img
           className="chat__giftrow_gifts"

@@ -214,7 +214,7 @@ export default function ChatBox() {
     ]);
   };
 
-  const sendEmoji = (emoji: any) => {
+  const sendEmoji = (emoji: StringObj) => {
     setTextValue(textValue + emoji.value);
   };
 
