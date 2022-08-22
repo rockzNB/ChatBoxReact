@@ -2,17 +2,6 @@ import React, { useState } from 'react';
 import styles from './styles.module.css';
 import { MessageType } from '../../index';
 
-const emojiStyle = {
-  height: '1rem',
-  width: '1rem',
-  cursor: 'pointer',
-  margin: '2px',
-};
-
-const emojiButtonStyle = {
-  cursor: 'pointer',
-};
-
 type EmojiClick = {
   emojis: MessageType[];
   handleClick: (emoji: MessageType) => void;
@@ -26,7 +15,7 @@ export function EmojiPicker({ handleClick, emojis }: EmojiClick) {
       <div className={styles.emoji__drawer} hidden={hidden}>
         {emojis.map((emoji) => (
           <img
-            style={emojiStyle}
+            className={styles.emoji_style}
             onClick={() => {
               handleClick(emoji);
               setHidden(true);
@@ -37,7 +26,7 @@ export function EmojiPicker({ handleClick, emojis }: EmojiClick) {
         ))}
       </div>
       <button
-        style={emojiButtonStyle}
+        className={styles.emoji_buttonStyle}
         type="button"
         onClick={() => setHidden(!hidden)}
       >
