@@ -1,0 +1,77 @@
+.chat__removeButton {
+    font-size: 10px;
+    position: absolute;
+    left: -20px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    top: 20%;
+    padding: 0;
+}
+
+.chat__removeGift {
+    font-size: 10px;
+    position: relative;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    padding: 0;
+    top: -30px;
+}
+
+.chat__removeGift:hover {
+    background: #d8222c;
+}
+
+.chat__removeButton:hover {
+    background: #d8222c;
+}
+.chat_chatter {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    max-width: 100%;
+}
+
+.chat_chatter .chat__chatterText {
+    max-width: 40%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    background-color: #009f83;
+    border-radius: 20px;
+    color: #ccf7f5;
+    font-size: 11px;
+    vertical-align: middle;
+    word-break: break-word;
+    margin-left: 3px;
+}
+
+.chat_fakeChatter {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3px;
+}
+
+.chat_fakeChatter .chat__chatterText {
+    max-width: 40%;
+    color: #ccf7f5;
+    word-break: break-word;
+    background-color: purple;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 20px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.chat__giftStyle {
+    height: 3em;
+    width: 3em;
+    padding: 10px;
+}

@@ -185,7 +185,7 @@ export default function ChatBox() {
       timeoutRef.current = setTimeout(sendFakeMessage, 5000);
       intervalRef.current = setInterval(sendFakeMessage, 5000);
     }, 5000);
-  }, [textMessages]);
+  }, []);
 
   useEffect(() => {
     intervalRef.current = setInterval(sendFakeMessage, 2000);
@@ -216,21 +216,18 @@ export default function ChatBox() {
       prevState.filter(({ id }) => id !== messageId)
     );
   }
-  const sendGift = useCallback(
-    (gift: MessageType) => {
-      setTextMessages([
-        ...textMessages,
-        { ...gift, id: new Date(), type: 'gift' },
-      ]);
-    },
-    [textMessages]
-  );
+  const sendGift = useCallback((gift: MessageType) => {
+    setTextMessages((prevState) => [
+      ...prevState,
+      { ...gift, id: new Date(), type: 'gift' },
+    ]);
+  }, []);
 
   const sendEmoji = useCallback(
     (emoji: MessageType) => {
       setTextValue(textValue + emoji.value);
     },
-    [textMessages]
+    [textValue]
   );
 
   return (

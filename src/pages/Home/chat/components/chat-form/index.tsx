@@ -14,13 +14,16 @@ export function ChatForm({
   textValue,
   setTextValue,
 }: Props) {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTextValue(e.target.value);
+  };
   return (
     <form onSubmit={sendMessage}>
       <input
         ref={inputRef}
         type="text"
         value={textValue}
-        onChange={(e) => setTextValue(e.target.value)}
+        onChange={handleInputChange}
         name="enterMsg"
         placeholder="Type your message..."
         className={styles.chat_input}
