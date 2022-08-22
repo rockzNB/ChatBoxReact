@@ -232,7 +232,7 @@ export default function ChatBox() {
 
   return (
     <>
-      <div className={styles.chat_container}>
+      <div className={styles.chatContainer}>
         <MessageRenderer
           textMessages={textMessages}
           removeMessage={removeMessage}

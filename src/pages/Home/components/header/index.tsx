@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div>
       <img
-        className={styles.header__logo}
+        className={styles.headerLogo}
         src="https://www.dating.com/i/index/logo.svg?2"
         alt="logo"
       />

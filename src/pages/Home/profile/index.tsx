@@ -3,17 +3,17 @@ import styles from './styles.module.css';
 
 export default function Profile() {
   return (
-    <div className={styles.profile_container}>
-      <div className={styles.profile__header}>
+    <div className={styles.profileContainer}>
+      <div className={styles.profileHeader}>
         <h1>USER PROFILE HEADER</h1>
-        <div className={styles.profile__pic}>
+        <div className={styles.profilePic}>
           <h2>PROFILE PIC BLOCK</h2>
         </div>
       </div>
-      <div className={styles.profile__bio}>PROFILE INFORMATION BLOCK</div>
-      <div className={styles.profile__gallery}>
-        <div className={styles.profile__photos}>MY PHOTOS BLOCK</div>
-        <div className={styles.profile__videos}>MY VIDEOS BLOCK</div>
+      <div className={styles.profileBio}>PROFILE INFORMATION BLOCK</div>
+      <div className={styles.profileGallery}>
+        <div className={styles.profilePhotos}>MY PHOTOS BLOCK</div>
+        <div className={styles.profileVideos}>MY VIDEOS BLOCK</div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import ChatBox from './chat';
 export default function Home() {
   return (
     <>
-      <div className={styles.home_container}>
+      <div className={styles.homeContainer}>
         <h1 className={styles.header}>
           <Header />
         </h1>

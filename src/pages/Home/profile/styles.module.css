@@ -1,14 +1,14 @@
-.profile_container {
+.profileContainer {
   width: 100%;
   background: red;
   display: grid;
 }
 
-.profile__header {
+.profileHeader {
   position: relative;
   padding: 40px 40px 120px;
 }
-.profile__pic {
+.profilePic {
   width: 120px;
   height: 120px;
   background: yellow;
@@ -16,31 +16,31 @@
   bottom: -10px;
 }
 
-.profile__bio {
+.profileBio {
   background: blue;
   padding: 40px;
 }
 
-.profile__gallery {
+.profileGallery {
   background: purple;
   padding: 40px;
   display: flex;
   justify-content: space-around;
 }
 
-.profile_columns {
+.profileColumns {
   display: block;
   justify-content: space-around;
   margin-top: 40px;
 }
 
-.profile__photos {
+.profilePhotos {
   height: 80px;
   width: 80px;
   background: green;
 }
 
-.profile__videos {
+.profileVideos {
   height: 80px;
   width: 80px;
   background: green;

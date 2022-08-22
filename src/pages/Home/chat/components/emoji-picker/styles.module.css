@@ -1,4 +1,4 @@
-.emoji__drawer {
+.emojiDrawer {
   background-color: cyan;
   margin-top: -110px;
   position: fixed;
@@ -7,18 +7,18 @@
   right: 0;
 }
 
-.emoji_picker {
+.emojiPicker {
   float: right;
   margin-top: -25px;
   transform: translateX(-40px);
 }
 
-.emoji_style {
+.emojiStyle {
   height: 1rem;
   width: 1rem;
   cursor: pointer;
   margin: 2px;
 }
-.emoji_buttonStyle {
+.emojiButtonStyle {
   cursor: pointer;
 }

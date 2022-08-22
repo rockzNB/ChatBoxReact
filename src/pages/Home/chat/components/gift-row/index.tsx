@@ -2,17 +2,18 @@ import React from 'react';
 import { MessageType } from '../../index';
 import styles from './styles.module.css';
 
-type GiftClick = {
+type Props = {
   gifts: MessageType[];
   handleClick: (gift: MessageType) => void;
 };
 
-export function GiftRow({ handleClick, gifts }: GiftClick) {
+export function GiftRow(props: Props) {
+ const { handleClick, gifts } = props
   return (
-    <div className={styles.chat__giftContainer}>
+    <div className={styles.giftContainer}>
       {gifts.map((gift) => (
         <img
-          className={styles.chat__giftRow}
+          className={styles.giftRow}
           onClick={() => handleClick(gift)}
           key={gift.name}
           src={gift.img}

@@ -8,13 +8,9 @@ type Props = {
   inputRef: React.LegacyRef<HTMLInputElement>;
 };
 
-export function ChatForm({
-  sendMessage,
-  inputRef,
-  textValue,
-  setTextValue,
-}: Props) {
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+export function ChatForm(props: Props) {
+  const {sendMessage, inputRef, textValue, setTextValue} = props
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextValue(e.target.value);
   };
   return (
@@ -26,10 +22,10 @@ export function ChatForm({
         onChange={handleInputChange}
         name="enterMsg"
         placeholder="Type your message..."
-        className={styles.chat_input}
+        className={styles.input}
       />
 
-      <button type="submit" className={styles.chat__sendBtn}>
+      <button type="submit" className={styles.sendBtn}>
         <text>
           <b>SEND</b>
         </text>
