@@ -28,12 +28,11 @@ export default function Header() {
 
   const imageOneLoad = loadImage(imgOne);
   const imageTwoLoad = loadImage(imgTwo);
-
   const imageThreeLoad = loadImage(imgThree);
+
   useEffect(() => {
     combineLatest([imageOneLoad, imageTwoLoad, imageThreeLoad]).subscribe(
       (arr) => {
-        console.log(arr);
         setImages(arr);
       }
     );
@@ -42,7 +41,7 @@ export default function Header() {
   return (
     <div>
       {images.map((src) => (
-        <img src={src} key={src} className={styles.headerLogo} />
+        <img src={src} key={src} alt={src} className={styles.headerLogo} />
       ))}
     </div>
   );

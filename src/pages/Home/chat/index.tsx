@@ -4,6 +4,7 @@ import { GiftRow } from './components/gift-row';
 import { EmojiPicker } from './components/emoji-picker';
 import { MessageRenderer } from './components/message-renderer';
 import { ChatForm } from './components/chat-form';
+import { startWith, interval, from, zipWith } from 'rxjs';
 
 const gifts = [
   {
@@ -116,27 +117,19 @@ const emojis = [
 
 const messages = [
   {
-    value:
-      "hello how are you doing? I'm a chinese billionaire, I own a company, where are you from? I wanna send you $50000000",
-  },
-  {
-    value: 'please send me those virtual gifts I need them to escape prison',
+    value: 'Привет, Давай пообщаемся?',
   },
 
   {
-    value: 'if you REALLY love me, SEND ME THE VIRTUAL GIFTS!!!',
+    value: 'Привет, Давай пообщаемся?',
   },
 
   {
-    value: "I'm waiting for you at the airport, where are you??? ",
+    value: 'Привет, Давай пообщаемся?',
   },
 
   {
-    value: 'MORE MORE VIRTUAL GIFTS PLEASE ',
-  },
-
-  {
-    value: 'SEND ME YOUR WESTERN UNION ',
+    value: 'Привет, Давай пообщаемся?',
   },
 ];
 
@@ -163,36 +156,37 @@ export default function ChatBox() {
     }
   }, [textMessages]);
 
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const botMessage = { value: 'Привет! Я бот Алиса. Давай знакомиться!' };
 
-  function randomText() {
-    const random: number = Math.floor(Math.random() * messages.length);
-    const randomMessages = messages[random];
-    return randomMessages.value;
-  }
+  const source = from(messages);
 
-  const sendFakeMessage = useCallback(() => {
-    clearInterval(intervalRef.current as NodeJS.Timeout);
-    setTextMessages((prevState) => [
-      ...prevState,
-      {
-        value: randomText(),
-        type: 'text',
-      },
-    ]);
-    setTimeout(() => {
-      timeoutRef.current = setTimeout(sendFakeMessage, 5000);
-      intervalRef.current = setInterval(sendFakeMessage, 5000);
-    }, 5000);
-  }, []);
+  const sendFakeMessage = source.pipe(
+    startWith(botMessage),
+    // @ts-ignore
+    zipWith(interval(5000), (a, index) => {
+      if (index === 0) {
+        return a;
+      } else {
+        return index % 2 === 0 ? { value: `${a.value} Напиши мне! ` } : a;
+      }
+    })
+  );
 
   useEffect(() => {
-    intervalRef.current = setInterval(sendFakeMessage, 2000);
-    return () => {
-      clearInterval(intervalRef.current as NodeJS.Timeout);
-      clearTimeout(timeoutRef.current as NodeJS.Timeout);
-    };
+    const subscribeFakeMsg = sendFakeMessage.subscribe((a) => {
+      setTextMessages((prevState) => [
+        ...prevState,
+        {
+          // @ts-ignore
+          value: a.value,
+          type: 'text',
+        },
+      ]);
+    });
+    function unsubscribeFakeMsg() {
+      subscribeFakeMsg.unsubscribe();
+    }
+    return unsubscribeFakeMsg;
   }, []);
 
   const inputRef = useRef<HTMLInputElement>(null);
