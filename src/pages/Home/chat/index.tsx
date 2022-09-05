@@ -158,27 +158,29 @@ export default function ChatBox() {
 
   const botMessage = { value: 'Привет! Я бот Алиса. Давай знакомиться!' };
 
-  const source = from(messages);
+  const getMessage = from(messages);
 
-  const sendFakeMessage = source.pipe(
+  const sendFakeMessage = getMessage.pipe(
     startWith(botMessage),
     // @ts-ignore
-    zipWith(interval(5000), (a, index) => {
+    zipWith(interval(5000), (message, index) => {
       if (index === 0) {
-        return a;
+        return message;
       } else {
-        return index % 2 === 0 ? { value: `${a.value} Напиши мне! ` } : a;
+        return index % 2 === 0
+          ? { value: `${message.value} Напиши мне! ` }
+          : message;
       }
     })
   );
 
   useEffect(() => {
-    const subscribeFakeMsg = sendFakeMessage.subscribe((a) => {
+    const subscribeFakeMsg = sendFakeMessage.subscribe((message) => {
       setTextMessages((prevState) => [
         ...prevState,
         {
           // @ts-ignore
-          value: a.value,
+          value: message.value,
           type: 'text',
         },
       ]);
