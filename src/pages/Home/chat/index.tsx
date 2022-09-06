@@ -4,7 +4,7 @@ import { GiftRow } from './components/gift-row';
 import { EmojiPicker } from './components/emoji-picker';
 import { MessageRenderer } from './components/message-renderer';
 import { ChatForm } from './components/chat-form';
-import { startWith, interval, from, zipWith } from 'rxjs';
+import { startWith, interval, from, zipWith, take } from 'rxjs';
 
 const gifts = [
   {
@@ -131,6 +131,15 @@ const messages = [
   {
     value: 'Привет, Давай пообщаемся?',
   },
+  {
+    value: 'Привет, Давай пообщаемся?',
+  },
+  {
+    value: 'Привет, Давай пообщаемся?',
+  },
+  {
+    value: 'Привет, Давай пообщаемся?',
+  },
 ];
 
 export type MessageType = {
@@ -162,6 +171,7 @@ export default function ChatBox() {
 
   const sendFakeMessage = getMessage.pipe(
     startWith(botMessage),
+    take(5),
     // @ts-ignore
     zipWith(interval(5000), (message, index) => {
       if (index === 0) {
