@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ChatBoxReact/static/css/main.e0db83ad.css",
+    "main.js": "/ChatBoxReact/static/js/main.5962937e.js",
+    "index.html": "/ChatBoxReact/index.html",
+    "main.e0db83ad.css.map": "/ChatBoxReact/static/css/main.e0db83ad.css.map",
+    "main.5962937e.js.map": "/ChatBoxReact/static/js/main.5962937e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0db83ad.css",
+    "static/js/main.5962937e.js"
+  ]
+}
