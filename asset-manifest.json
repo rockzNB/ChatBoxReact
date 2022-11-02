@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ChatBoxReact/static/css/main.e0db83ad.css",
-    "main.js": "/ChatBoxReact/static/js/main.1d43b54a.js",
+    "main.js": "/ChatBoxReact/static/js/main.d5455207.js",
     "index.html": "/ChatBoxReact/index.html",
     "main.e0db83ad.css.map": "/ChatBoxReact/static/css/main.e0db83ad.css.map",
-    "main.1d43b54a.js.map": "/ChatBoxReact/static/js/main.1d43b54a.js.map"
+    "main.d5455207.js.map": "/ChatBoxReact/static/js/main.d5455207.js.map"
   },
   "entrypoints": [
     "static/css/main.e0db83ad.css",
-    "static/js/main.1d43b54a.js"
+    "static/js/main.d5455207.js"
   ]
 }
